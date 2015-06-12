@@ -1,23 +1,25 @@
 public class SimpleScript
 {
-	
-	 [DeclareAction("MyScriptActionWithMenu")]
-     public void MyFunctionAsAction()
+	 [DeclareAction("ShowMessage")]
+     public void ShowMessageFunction()
      {
-
            MessageBox.Show("MyFunctionAsAction was called!", "RegisterScriptMenu");
            return;
-
      }
-
-	
-	[DeclareMenu]
-	public void MenuFunction()
+	 
+	 [DeclareAction("ShowMessages")]
+     public void ShowMessagesFunction()
      {
-
-           Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
-           oMenu.AddMenuItem("Custom","MyScriptActionWithMenu");
-
+           ShowMessageFunction();
+           ShowMessageFunction();
+		   return;
      }
 
+	[DeclareMenu]
+	public void SecondMenuFunction()
+     {
+           Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
+		   oMenu.AddMenuItem("Custom","ShowMessage");
+		   oMenu.AddMenuItem("Custom double","ShowMessages");
+     }
 }
