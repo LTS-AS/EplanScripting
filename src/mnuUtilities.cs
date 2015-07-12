@@ -1,11 +1,13 @@
 public class ReportLib
 {
+	// Unfinished method. Trying to extract properties from project
 	public string projectProperties()
 	{
 		ActionCallingContext pdfContext = new ActionCallingContext();
 		return pdfContext.ToString();
 	}
 	
+	// Returns the project path reduced by nStrippLevels.
 	public string getProjectPath(int nStrippLevels)
 	{
 		//Execute a "selectionset" action to obtain the currently selected project's full path
@@ -28,14 +30,14 @@ public class ReportLib
 		}
 		return myPath;
 	}
-	
-	public void PDFexport(string sZielDatei)
+	// Exsports PDF of project to pdfPath
+	public void PDFexport(string pdfPath)
 	{
 		Eplan.EplApi.Base.Progress oProgress = new Eplan.EplApi.Base.Progress("SimpleProgress");
 		oProgress.ShowImmediately();
 		ActionCallingContext pdfContext = new ActionCallingContext();
 		pdfContext.AddParameter("type", "PDFPROJECTSCHEME");
-		pdfContext.AddParameter("exportfile", sZielDatei);
+		pdfContext.AddParameter("exportfile", pdfPath);
 		pdfContext.AddParameter("exportmodel", "0");
 		pdfContext.AddParameter("blackwhite", "1");
 		pdfContext.AddParameter("useprintmargins", "1");
@@ -52,6 +54,7 @@ public class ReportLib
 		return;
 	}
 	
+	// Generates an updated set of project reports
 	public bool generateReports()
 	{
 		bool bResult = false;
@@ -70,6 +73,7 @@ public class ReportLib
 		return bResult;
 	}
 
+	// Adds backup to the project folder. Typical revision types is O, P and A (Order, for Production and As built)
 	public void backup(string revisionType = "")
 	{
 	string strProjectname = PathMap.SubstitutePath("$(PROJECTNAME)");
@@ -122,11 +126,10 @@ public class ReportLib
 public class UtilitiesToolbar{
 	ReportLib myLib = new ReportLib();
 	
-	[DeclareAction("ShowMessage")]
-    public void showMessageFunction()
+	[DeclareAction("test")]
+    public void test()
 	{
-		MessageBox.Show(PathMap.SubstitutePath("$(P)"));
-		//MessageBox.Show(DateTime.Now.ToString("yyyy-MM-dd"), "Useless date function");
+		MessageBox.Show(DateTime.Now.ToString("yyyy-MM-dd"), "Useless date function");
     }
 	 
 	 [DeclareAction("updateAndExportPDF")]
@@ -158,10 +161,9 @@ public class UtilitiesToolbar{
 	[DeclareMenu]
 	public void SecondMenuFunction(){
            Eplan.EplApi.Gui.Menu oMenu = new Eplan.EplApi.Gui.Menu();
-		   oMenu.AddMenuItem("Custom","ShowMessage");
+		   oMenu.AddMenuItem("Test","test");
 		   oMenu.AddMenuItem("Back up project","backupProject");
 		   oMenu.AddMenuItem("Update and export PDFs","updateAndExportPDF");
 		   oMenu.AddMenuItem("Open project folder","OpenProjectFolder");
      }
 }
-//User supplementary field 1 = P2014-096
