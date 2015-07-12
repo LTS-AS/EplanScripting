@@ -77,14 +77,13 @@ public class ReportLib
 	public void backup(string revisionType = "")
 	{
 	string strProjectname = PathMap.SubstitutePath("$(PROJECTNAME)");
-
-	string strFullProjectname = PathMap.SubstitutePath("$(P)");
 	if (strProjectname == "")
 	{
 		MessageBox.Show("No unique project selected", "Backup failed");
 	}
 	else
 	{
+		string strFullProjectname = PathMap.SubstitutePath("$(P)");
 		string strDestination = System.IO.Path.GetDirectoryName(strFullProjectname);//pealing off last folder
 		string myTime = System.DateTime.Now.ToString("yyyy_MM_dd");
 		string hour = System.DateTime.Now.Hour.ToString();
