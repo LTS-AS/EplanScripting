@@ -1,4 +1,3 @@
-namespace MyOtherNameSpace{
 public class ReportLib
 {
 	public string projectProperties()
@@ -164,6 +163,5 @@ public class UtilitiesToolbar{
 		   oMenu.AddMenuItem("Update and export PDFs","updateAndExportPDF");
 		   oMenu.AddMenuItem("Open project folder","OpenProjectFolder");
      }
-}
 }
 //User supplementary field 1 = P2014-096
