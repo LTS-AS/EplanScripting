@@ -30,7 +30,7 @@ public class ReportLib
 		}
 		return myPath;
 	}
-	// Exsports PDF of project to pdfPath
+	// Exports PDF of project to pdfPath
 	public void PDFexport(string pdfPath)
 	{
 		Eplan.EplApi.Base.Progress oProgress = new Eplan.EplApi.Base.Progress("SimpleProgress");
@@ -84,10 +84,11 @@ public class ReportLib
 	else
 	{
 		string strFullProjectname = PathMap.SubstitutePath("$(P)");
-		string strDestination = System.IO.Path.GetDirectoryName(strFullProjectname);//pealing off last folder
-		string myTime = System.DateTime.Now.ToString("yyyy_MM_dd");
-		string hour = System.DateTime.Now.Hour.ToString();
-		string minute = System.DateTime.Now.Minute.ToString();
+		string strDestination2 = System.IO.Path.GetDirectoryName(strFullProjectname);//pealing off last folder
+		string strDestination = System.IO.Path.GetDirectoryName(strDestination2) + ("\\customer folder\\");
+		string myTime = System.DateTime.Now.ToString("yyyy-MM-dd");
+		//string hour = System.DateTime.Now.Hour.ToString();
+		//string minute = System.DateTime.Now.Minute.ToString();
 		Progress progress = new Progress("SimpleProgress");
 		progress.BeginPart(100, "");
 		progress.SetAllowCancel(true);
@@ -107,7 +108,7 @@ public class ReportLib
 			backupContext.AddParameter("TYPE", "PROJECT");
 			if (revisionType=="")
 			{
-				backupContext.AddParameter("ARCHIVENAME", strProjectname + "_" + myTime + "_" + hour + "_" + minute);//if no revision type defined, just add timestamp
+				backupContext.AddParameter("ARCHIVENAME", myTime + "-" + "EL-backup");//if no revision type defined, just add timestamp
 			}
 			else
 			{
@@ -135,7 +136,7 @@ public class UtilitiesToolbar{
      public void updateAndExportPDFn()
 	 {
 		bool result = myLib.generateReports();
-	    myLib.PDFexport(myLib.getProjectPath(2) + "\\P2014-096 padde2\\" + DateTime.Now.ToString("yyyy-MM-dd") + "-export.pdf");
+	    myLib.PDFexport(myLib.getProjectPath(2) + "\\customer folder\\" + DateTime.Now.ToString("yyyy-MM-dd") + "-EL-draft.pdf");
 		return;
      }
 
