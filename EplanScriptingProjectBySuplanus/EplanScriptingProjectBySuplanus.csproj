@@ -76,6 +76,7 @@
     <Compile Include="AutomaticGeneratingConnections\AutomaticGeneratingConnections.cs" />
     <Compile Include="BackupOnClosingProjects\BackupOnClosingProject.cs" />
     <Compile Include="ChangePLCMnemonics\ChangePLCMnemonics.cs" />
+    <Compile Include="ConnectionPointDesignationReverse\ConnectionPointDesignationReverse.cs" />
     <Compile Include="CopyMode\CopyMode.cs" />
     <Compile Include="CustomPropertyEditor\CustomPropertyEditor.cs">
       <SubType>Form</SubType>
@@ -92,9 +93,18 @@
     <Compile Include="ExtendedSettings\ExtendedSettings.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GetCurrentLoadedScripts\GetCurrentLoadedScripts.cs" />
+    <Compile Include="GetProjectLanguages\GetProjectLanguages.cs" />
+    <Compile Include="GetCurrentScriptPath\GetCurrentScriptPath.cs" />
     <Compile Include="GetProjectnameOnPostOpen\GetProjectnameOnPostOpen.cs" />
     <Compile Include="GetProjectProperty\GetProjectProperty.cs" />
+    <Compile Include="InsertComment\InsertComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InsertPageMacro\InsertPageMacro.cs" />
+    <Compile Include="InsertUniversalPart3D\InsertUniversalPart3D.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InterruptionPointConfigurator\InterruptionPointConfigurator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,7 +113,9 @@
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Get.cs" />
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Set.cs" />
     <Compile Include="MultilanguageToolExamples\MultilanguageToolExamples_Settings.cs" />
+    <Compile Include="PlaceHolderTranslateAction\PlaceHolderTranslateAction.cs" />
     <Compile Include="ScriptTest\ScriptTest.cs" />
+    <Compile Include="ToggleDeviceTag\ToggleDeviceTag.cs" />
     <Compile Include="TranslateLanguages\TranslateLanguages.cs" />
     <Compile Include="OpenProjectAndSetPartsDb\OpenProjectAndSetPartsDb.cs" />
     <Compile Include="PageChangeZoomAll\PageChangeZoomAll.cs" />
@@ -144,6 +156,9 @@
     <Compile Include="UpdateProjectProperties\UpdateProjectProperties.cs" />
     <Compile Include="XFREActionFrameOpen\XFREActionFrameOpenAction.cs" />
     <Compile Include="XPamTranslateDatabaseAction\XPamTranslateDatabaseAction.cs" />
+    <EmbeddedResource Include="InsertUniversalPart3D\InsertUniversalPart3D.resx">
+      <DependentUpon>InsertUniversalPart3D.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -155,8 +170,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Bookmarks\Documentation\Bookmarks Doku.pdf" />
-    <None Include="InsertUniversalPart3D\Macros\Artikelplatzierung_%283D%29.ema" />
-    <None Include="InsertUniversalPart3D\Macros\Schrankbauteil_%283D%29.ema" />
+    <None Include="InsertUniversalPart3D\Macros\CabinetPart.ema" />
+    <None Include="InsertUniversalPart3D\Macros\PartPlacement.ema" />
     <None Include="InterruptionPointConfigurator\Macros\1pol-ganz.ema" />
     <None Include="InterruptionPointConfigurator\Macros\1pol-links.ema" />
     <None Include="InterruptionPointConfigurator\Macros\1pol-rechts.ema" />
@@ -204,12 +219,18 @@
     <Content Include="CustomPropertyEditor\Example\10013.0.false.txt" />
     <Content Include="CustomPropertyEditor\Example\10014.0.true.txt" />
     <Content Include="ElkExportToDwg\ElkExportToDwg.vb" />
+    <Content Include="GetProjectProperty\GetProjectProperty_Scheme.xml" />
+    <Content Include="GetProjectProperty\GetProjectProperty_Template.xml" />
     <Content Include="PlcNavigatorReadressMenu\PlcNavigatorReadressMenu.vb" />
     <Content Include="SetMacroBoxName\Toolbar\ema.jpg" />
     <Content Include="SetMacroBoxName\Toolbar\ems.jpg" />
     <Content Include="SetMacroBoxName\Toolbar\SetMacroBox.xml" />
     <Content Include="SettingsRemoveSelection\SettingsRemoveSelection.vb" />
-    <Content Include="UpdateMacro\UpdateMacro.vb" />
+    <Compile Include="UpdateMacro\UpdateMacro.cs" />
+    <Content Include="ToggleDeviceTag\Images\Toolbar\DTAddNewLine.jpg" />
+    <Content Include="ToggleDeviceTag\Images\Toolbar\DTRemoveNewLine.jpg" />
+    <Content Include="ToggleDeviceTag\Schemes\PXex.ESS_MacroScriptHelper_MultiLine_DT.xml" />
+    <Content Include="ToggleDeviceTag\XML\Toolbar_ESS_DeviceTagTool.xml" />
     <Content Include="Watermark\Watermark.vb" />
   </ItemGroup>
   <ItemGroup>
